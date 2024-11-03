@@ -1,0 +1,11 @@
+---
+- name: Lock the specified user account
+  ansible.builtin.user:
+    name: "{{ disable_user_name }}"
+    state: present
+    password_lock: true
+
+- name: Ensure the specified user's SSH access is disabled
+  ansible.builtin.file:
+    path: "/home/{{ disable_user_name }}/.ssh/authorized_keys"
+    state: absent
