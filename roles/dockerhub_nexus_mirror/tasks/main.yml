@@ -1,0 +1,14 @@
+---
+- name: Configure Docker to use Nexus Docker Registry Mirror
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/docker/daemon.json
+    content: |
+      {
+        "registry-mirrors": ["http://nexus.homelab.lan:8443"],
+        "insecure-registries" : ["nexus.homelab.lan:8443"]
+      }
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart Docker
