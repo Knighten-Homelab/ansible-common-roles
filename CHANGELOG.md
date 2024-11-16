@@ -1,3 +1,9 @@
+## [1.1.5](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.4...1.1.5) (2024-11-16)
+
+### Bug Fixes
+
+* moved apt update to task from handler ([2184ca3](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/commit/2184ca3a27ed3a383f164fe16e9b59d65131a0bb))
+
 ## [1.1.4](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.3...1.1.4) (2024-11-16)
 
 ### Bug Fixes
