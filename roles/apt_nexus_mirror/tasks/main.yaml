@@ -41,8 +41,6 @@
     line: "{{ item }}"
     state: present
   loop: "{{ apt_nexus_mirror_nexus_sources }}"
-  notify:
-    - Update APT Cache
   tags: configure
 
 - name: Ensure no residual APT sources exist
