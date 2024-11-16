@@ -1,3 +1,9 @@
+## [1.1.6](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.5...1.1.6) (2024-11-16)
+
+### Bug Fixes
+
+* removed lingering handler ref ([005d8a5](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/commit/005d8a5a5efb79d4753dd838b5c7820a5aa4773e))
+
 ## [1.1.5](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.4...1.1.5) (2024-11-16)
 
 ### Bug Fixes
