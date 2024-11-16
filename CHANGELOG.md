@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.0.0...1.1.0) (2024-11-16)
+
+### Features
+
+* made role to setup apt nexus mirrors ([ba8ba04](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/commit/ba8ba04b669d97778c130bfe9025abb6d05e1c98))
+
 ## [1.0.0](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/...1.0.0) (2024-11-05)
 
 ### Bug Fixes
