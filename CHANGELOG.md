@@ -1,3 +1,9 @@
+## [1.1.2](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.1...1.1.2) (2024-11-16)
+
+### Bug Fixes
+
+* renamed task to tasks in apt_nexus_Mirror ([92d5aa8](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/commit/92d5aa81372289e15900ee41768ae121e7a2ceba))
+
 ## [1.1.1](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.0...1.1.1) (2024-11-16)
 
 ### Bug Fixes
