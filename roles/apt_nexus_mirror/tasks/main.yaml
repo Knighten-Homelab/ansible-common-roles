@@ -52,3 +52,10 @@
   loop: "{{ query('fileglob', '/etc/apt/sources.list.d/*.list') }}"
   when: query('fileglob', '/etc/apt/sources.list.d/*.list') | length > 0
   tags: cleanup
+
+- name: Update APT Cache
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: true
+  when: ansible_os_family == "Debian"
+  tags: update
