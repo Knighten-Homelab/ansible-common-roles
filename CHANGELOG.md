@@ -1,3 +1,9 @@
+## [1.1.3](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.2...1.1.3) (2024-11-16)
+
+### Bug Fixes
+
+* updated nexus_sources var name ([efc5b66](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/commit/efc5b66df3866f49832dff1cfec23b31a337abe6))
+
 ## [1.1.2](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.1...1.1.2) (2024-11-16)
 
 ### Bug Fixes
