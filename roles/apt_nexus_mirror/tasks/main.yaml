@@ -27,6 +27,14 @@
     mode: '0644'
   tags: cleanup
 
+- name: Clear contents of sources.list.d/debian.sources
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list.d/debian.sources
+    content: ""
+    mode: '0644'
+  when: ansible_distribution == 'Debian'
+  tags: cleanup
+
 - name: Add Nexus APT sources to sources.list
   ansible.builtin.lineinfile:
     path: /etc/apt/sources.list
