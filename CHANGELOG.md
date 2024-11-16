@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.0...1.1.1) (2024-11-16)
+
+### Bug Fixes
+
+* moved vars to defaults ([bc41bb6](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/commit/bc41bb65efbfdc67944c2b139a61d5ed9eb20a30))
+
 ## [1.1.0](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.0.0...1.1.0) (2024-11-16)
 
 ### Features
