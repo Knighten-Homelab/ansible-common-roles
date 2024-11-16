@@ -1,69 +1,46 @@
 ---
-- name: Configure APT to Use Only Nexus Proxy (Air-Gapped System)
-  hosts: all
-  become: true
-  vars:
-    ubuntu_nexus_sources:
-      - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy main restricted
-      - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-updates main restricted
-      - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy universe
-      - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-updates universe
-      - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy multiverse
-      - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-updates multiverse
-      - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-backports main restricted universe multiverse
-      - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-security main restricted
-      - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-security universe
-      - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-security multiverse
-    debian_nexus_sources:
-      - deb http://nexus.homelab.lan/repository/debian-security-proxy/ bookworm-security main
-      - deb http://nexus.homelab.lan/repository/debian-proxy/ bookworm main
-      - deb http://nexus.homelab.lan/repository/debian-proxy/ bookworm-updates main
-      - deb http://nexus.homelab.lan/repository/debian-proxy/ bookworm-backports main
-    nexus_sources: "{{ ubuntu_nexus_sources if ansible_distribution == 'Ubuntu' else debian_nexus_sources if ansible_distribution == 'Debian' else [] }}"
+- name: Ensure the system is either Ubuntu or Debian
+  ansible.builtin.fail:
+    msg: "Unsupported OS. This role only supports Ubuntu and Debian."
+  when: nexus_sources | length == 0
 
-  tasks:
-    - name: Ensure the system is either Ubuntu or Debian
-      ansible.builtin.fail:
-        msg: "Unsupported OS. This role only supports Ubuntu and Debian."
-      when: nexus_sources | length == 0
+- name: Backup existing sources.list
+  ansible.builtin.copy:
+    src: /etc/apt/sources.list
+    dest: /etc/apt/sources.list.bak
+    backup: true
+    mode: '0644'
+  tags: backup
 
-    - name: Backup existing sources.list
-      ansible.builtin.copy:
-        src: /etc/apt/sources.list
-        dest: /etc/apt/sources.list.bak
-        backup: true
-        mode: '0644'
-      tags: backup
+- name: Remove all existing APT source lists in sources.list.d
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop: "{{ query('fileglob', '/etc/apt/sources.list.d/*.list') }}"
+  when: query('fileglob', '/etc/apt/sources.list.d/*.list') | length > 0
+  tags: cleanup
 
-    - name: Remove all existing APT source lists in sources.list.d
-      ansible.builtin.file:
-        path: "{{ item }}"
-        state: absent
-      loop: "{{ query('fileglob', '/etc/apt/sources.list.d/*.list') }}"
-      when: query('fileglob', '/etc/apt/sources.list.d/*.list') | length > 0
-      tags: cleanup
+- name: Clear contents of main sources.list
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list
+    content: ""
+    mode: '0644'
+  tags: cleanup
 
-    - name: Clear contents of main sources.list
-      ansible.builtin.copy:
-        dest: /etc/apt/sources.list
-        content: ""
-        mode: '0644'
-      tags: cleanup
+- name: Add Nexus APT sources to sources.list
+  ansible.builtin.lineinfile:
+    path: /etc/apt/sources.list
+    line: "{{ item }}"
+    state: present
+  loop: "{{ nexus_sources }}"
+  notify:
+    - Update APT Cache
+  tags: configure
 
-    - name: Add Nexus APT sources to sources.list
-      ansible.builtin.lineinfile:
-        path: /etc/apt/sources.list
-        line: "{{ item }}"
-        state: present
-      loop: "{{ nexus_sources }}"
-      notify:
-        - Update APT Cache
-      tags: configure
-
-    - name: Ensure no residual APT sources exist
-      ansible.builtin.file:
-        path: "{{ item }}"
-        state: absent
-      loop: "{{ query('fileglob', '/etc/apt/sources.list.d/*.list') }}"
-      when: query('fileglob', '/etc/apt/sources.list.d/*.list') | length > 0
-      tags: cleanup
+- name: Ensure no residual APT sources exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop: "{{ query('fileglob', '/etc/apt/sources.list.d/*.list') }}"
+  when: query('fileglob', '/etc/apt/sources.list.d/*.list') | length > 0
+  tags: cleanup

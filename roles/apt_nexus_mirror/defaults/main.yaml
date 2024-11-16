@@ -1,0 +1,22 @@
+---
+apt_nexus_mirror_ubuntu_nexus_sources:
+  - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy main restricted
+  - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-updates main restricted
+  - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy universe
+  - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-updates universe
+  - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy multiverse
+  - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-updates multiverse
+  - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-backports main restricted universe multiverse
+  - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-security main restricted
+  - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-security universe
+  - deb http://nexus.homelab.lan/repository/ubuntu-jammy-proxy/ jammy-security multiverse
+apt_nexus_mirror_debian_nexus_sources:
+  - deb http://nexus.homelab.lan/repository/debian-security-proxy/ bookworm-security main
+  - deb http://nexus.homelab.lan/repository/debian-proxy/ bookworm main
+  - deb http://nexus.homelab.lan/repository/debian-proxy/ bookworm-updates main
+  - deb http://nexus.homelab.lan/repository/debian-proxy/ bookworm-backports main
+apt_nexus_mirror_nexus_sources: "{{ (
+  ubuntu_nexus_sources if ansible_distribution == 'Ubuntu' else
+  debian_nexus_sources if ansible_distribution == 'Debian' else
+  []
+) }}"
