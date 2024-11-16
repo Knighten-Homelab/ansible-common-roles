@@ -16,7 +16,7 @@ apt_nexus_mirror_debian_nexus_sources:
   - deb http://nexus.homelab.lan/repository/debian-proxy/ bookworm-updates main
   - deb http://nexus.homelab.lan/repository/debian-proxy/ bookworm-backports main
 apt_nexus_mirror_nexus_sources: "{{ (
-  ubuntu_nexus_sources if ansible_distribution == 'Ubuntu' else
-  debian_nexus_sources if ansible_distribution == 'Debian' else
+  apt_nexus_mirror_ubuntu_nexus_sources if ansible_distribution == 'Ubuntu' else
+  apt_nexus_mirror_debian_nexus_sources if ansible_distribution == 'Debian' else
   []
 ) }}"
