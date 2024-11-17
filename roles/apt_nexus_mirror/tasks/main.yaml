@@ -8,6 +8,7 @@
   ansible.builtin.copy:
     src: /etc/apt/sources.list
     dest: /etc/apt/sources.list.bak
+    remote_src: true
     backup: true
     mode: '0644'
   tags: backup
