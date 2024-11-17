@@ -1,3 +1,9 @@
+## [1.1.7](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.6...1.1.7) (2024-11-17)
+
+### Bug Fixes
+
+* added remote sourc to apt_nexus_mirror copy modules ([70997ef](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/commit/70997ef7252ba3eb70106c662fe12ab9b0c78b58))
+
 ## [1.1.6](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.5...1.1.6) (2024-11-16)
 
 ### Bug Fixes
