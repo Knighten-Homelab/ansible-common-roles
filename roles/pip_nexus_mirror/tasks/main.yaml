@@ -1,0 +1,16 @@
+---
+- name: Configure pip to use Nexus PyPi proxy
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/pip.conf
+    content: |
+      [global]
+      index = {{ pip_nexus_mirror_index }}
+      index-url = {{ pip_nexus_mirror_index_url }}
+
+      [install]
+        trusted-host =
+            {{ pip_nexus_mirror_host }}
+    owner: root
+    group: root
+    mode: '0644'

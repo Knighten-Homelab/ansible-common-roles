@@ -1,0 +1,4 @@
+---
+pip_nexus_mirror_index: http://nexus.homelab.lan/repository/pypi-proxy/pypi
+pip_nexus_mirror_index_url: http://nexus.homelab.lan/repository/pypi-proxy/simple
+pip_nexus_mirror_host: nexus.homelab.lan
