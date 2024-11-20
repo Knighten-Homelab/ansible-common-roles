@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.7...1.2.0) (2024-11-20)
+
+### Features
+
+* created role to setup pip to use nexus pypi mirror ([40718be](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/commit/40718be0d22fb74de216e0b05a5546f742eef5dd))
+
 ## [1.1.7](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.6...1.1.7) (2024-11-17)
 
 ### Bug Fixes
