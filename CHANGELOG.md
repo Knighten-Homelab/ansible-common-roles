@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.2.0...1.2.1) (2024-11-23)
+
+### Bug Fixes
+
+* updated nexus URLs for debian ([857a3aa](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/commit/857a3aae88a3aab580676e3950f8b20c51d0e6c3))
+
 ## [1.2.0](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.1.7...1.2.0) (2024-11-20)
 
 ### Features
