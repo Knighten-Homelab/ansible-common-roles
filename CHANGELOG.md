@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.2.1...1.3.0) (2024-11-24)
+
+### Features
+
+* created role to set hostname ([12b8354](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/commit/12b8354e7a3bb95584f00518d7e80bf2d2966d8a))
+
 ## [1.2.1](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.2.0...1.2.1) (2024-11-23)
 
 ### Bug Fixes
