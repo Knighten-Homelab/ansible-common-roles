@@ -5,8 +5,8 @@
     dest: /etc/docker/daemon.json
     content: |
       {
-        "registry-mirrors": ["http://nexus.homelab.lan:8443"],
-        "insecure-registries" : ["nexus.homelab.lan:8443"]
+        "registry-mirrors": ["http://{{ dockerhub_nexus_mirror_nexus_base_url }}:{{ dockerhub_nexus_mirror_registry_port }}"],
+        "insecure-registries" : ["{{ dockerhub_nexus_mirror_nexus_base_url }}:{{ dockerhub_nexus_mirror_registry_port }}"]
       }
     owner: root
     group: root
