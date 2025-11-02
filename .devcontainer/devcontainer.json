@@ -32,7 +32,5 @@
 		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
 	],
 
-	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y libonig-dev build-essential && pip3 install uv && uv sync",
-
-	"runArgs": ["--network=host"]
+	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y libonig-dev build-essential && pip3 install uv && uv sync"
 }
