@@ -1,5 +1,5 @@
 ---
-pip_nexus_mirror_nexus_base_url: "nexus.knighten.io"
+pip_nexus_mirror_nexus_base_url: "nexus.example.com"
 pip_nexus_mirror_index: "http://{{ pip_nexus_mirror_nexus_base_url }}/repository/pypi-proxy/pypi"
 pip_nexus_mirror_index_url: "http://{{ pip_nexus_mirror_nexus_base_url }}/repository/pypi-proxy/simple"
 pip_nexus_mirror_host: "{{ pip_nexus_mirror_nexus_base_url }}"

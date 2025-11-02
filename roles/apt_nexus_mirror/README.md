@@ -6,16 +6,11 @@ Configures APT package manager to use a Nexus repository mirror for Debian and U
 
 This role backs up existing APT sources, clears all current repository configurations, and configures the system to use Nexus repository proxies. It supports both Ubuntu (Jammy) and Debian (Bookworm) distributions with distribution-specific repository sources.
 
-## Requirements
-
-- Debian Bookworm or Ubuntu Jammy
-- Ansible >= 2.17
-
 ## Role Variables
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `apt_nexus_mirror_nexus_base_url` | `nexus.knighten.io` | Base URL for the Nexus server |
+| `apt_nexus_mirror_nexus_base_url` | `nexus.example.com` | Base URL for the Nexus server |
 | `apt_nexus_mirror_ubuntu_nexus_sources` | See defaults | List of Ubuntu repository source lines |
 | `apt_nexus_mirror_debian_nexus_sources` | See defaults | List of Debian repository source lines |
 | `apt_nexus_mirror_nexus_sources` | Auto-detected | Automatically selected based on distribution |
@@ -44,11 +39,3 @@ This role backs up existing APT sources, clears all current repository configura
 - `cleanup` - Repository cleanup tasks
 - `configure` - Repository configuration
 - `update` - APT cache update
-
-## License
-
-Apache-2.0
-
-## Author
-
-Johnny Knighten

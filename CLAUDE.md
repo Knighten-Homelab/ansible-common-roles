@@ -31,7 +31,7 @@ Each role follows standard Ansible role structure:
 ### Nexus Mirror Roles Pattern
 
 The three Nexus mirror roles (`apt_nexus_mirror`, `pip_nexus_mirror`, `dockerhub_nexus_mirror`) follow a consistent pattern:
-- Configure package managers to use a Nexus repository (default: `nexus.knighten.io`)
+- Configure package managers to use a Nexus repository (default: `nexus.example.com`)
 - Store configuration in system-level files (`/etc/apt/sources.list`, `/etc/pip.conf`, `/etc/docker/daemon.json`)
 - Use `become: true` for privilege escalation
 - The `apt_nexus_mirror` role conditionally handles both Ubuntu (Jammy) and Debian (Bookworm) with distribution-specific source lists

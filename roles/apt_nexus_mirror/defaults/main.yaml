@@ -1,5 +1,5 @@
 ---
-apt_nexus_mirror_nexus_base_url: "nexus.knighten.io"
+apt_nexus_mirror_nexus_base_url: "nexus.example.com"
 
 apt_nexus_mirror_ubuntu_nexus_sources:
   - "deb http://{{ apt_nexus_mirror_nexus_base_url }}/repository/ubuntu-jammy-proxy/ jammy main restricted"

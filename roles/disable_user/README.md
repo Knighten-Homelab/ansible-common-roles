@@ -6,10 +6,6 @@ Locks a user account and disables SSH access.
 
 This role securely disables a user account by locking the password and removing SSH authorized keys. This is useful for decommissioning user accounts while preserving the user's home directory and files.
 
-## Requirements
-
-- Ansible >= 2.17
-
 ## Role Variables
 
 | Variable | Default | Description |
@@ -53,11 +49,3 @@ This role securely disables a user account by locking the password and removing 
 - Remove the user's home directory
 - Kill active sessions
 - Remove user from groups
-
-## License
-
-Apache-2.0
-
-## Author
-
-Johnny Knighten
