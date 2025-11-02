@@ -1,0 +1,3 @@
+---
+dockerhub_nexus_mirror_nexus_base_url: "nexus.knighten.io"
+dockerhub_nexus_mirror_registry_port: "8443"
