@@ -103,6 +103,16 @@ The conventional commit types determine version bumps:
 - `fix:` → patch version bump
 - `BREAKING CHANGE:` → major version bump
 
+### Post-Release Version Update
+
+**IMPORTANT**: After each release, manually update the version in `galaxy.yml` to match the release version:
+
+1. Check the latest release version: `git log --oneline --grep="RELEASE:" -n 1`
+2. Update `galaxy.yml` version field to match
+3. Commit with message: `build: update galaxy.yml version to X.Y.Z`
+
+This ensures the Ansible Galaxy collection version stays in sync with GitHub releases.
+
 ### Local Release Testing
 To test release notes generation locally without publishing:
 ```bash
