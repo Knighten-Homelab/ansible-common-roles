@@ -16,7 +16,8 @@
 				"github.vscode-github-actions",
 				"VisualStudioExptTeam.vscodeintellicode",
 				"VisualStudioExptTeam.intellicode-api-usage-examples",
-				"redhat.ansible"
+				"redhat.ansible",
+				"Anthropic.claude-code"
 			]
 		}
 	},
