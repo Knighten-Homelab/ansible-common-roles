@@ -1,6 +1,6 @@
 namespace: homelab
 name: common_roles
-version: '1.0.0'
+version: '1.4.0'
 description: Ansible roles that are shared across project specific roles.
 repository: https://github.com/Johnny-Knighten/ansible-homelab-common-roles
 authors:
