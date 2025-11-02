@@ -1,46 +1,38 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-  "name": "Homlab - Ansible Common Roles",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/base:jammy",
-  "features": {
-    "ghcr.io/devcontainers-extra/features/ansible:2": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "lts",
-      "pnpmVersion": "latest",
-      "nvmVersion": "latest"
-    }
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "streetsidesoftware.code-spell-checker",
-        "dbaeumer.vscode-eslint",
-        "github.vscode-github-actions",
-        "VisualStudioExptTeam.vscodeintellicode",
-        "VisualStudioExptTeam.intellicode-api-usage-examples",
-        "esbenp.prettier-vscode",
-        "hashicorp.terraform"
-      ]
-    }
-  },
+	"name": "Homelab - Ansible Common Roles",
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
 
-  "postStartCommand": ".devcontainer/postCreate.bash",
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.11"
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
 
-  "remoteUser": "vscode",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				"github.vscode-github-actions",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples",
+				"redhat.ansible"
+			]
+		}
+	},
 
-  "remoteEnv": {
-    "USER_UID": "${localEnv:UID}",
-    "USER_GID": "${localEnv:GID}"
-  },
+	"remoteUser": "vscode",
 
-  // For WSL
-  "mounts": [
-    "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
-  ],
+	"remoteEnv": {
+		"USER_UID": "${localEnv:UID:1000}",
+		"USER_GID": "${localEnv:GID:1000}"
+	},
 
-  "runArgs": ["--network=host"]
+	"mounts": [
+		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
+	],
+
+	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y libonig-dev build-essential && pip3 install uv && uv sync",
+
+	"runArgs": ["--network=host"]
 }
