@@ -1,3 +1,14 @@
+## [1.4.0](https://github.com/Knighten-Homelab/ansible-common-roles/compare/1.3.0...1.4.0) (2025-11-02)
+
+### Bug Fixes
+
+* added claude vscode extension ([493bc31](https://github.com/Knighten-Homelab/ansible-common-roles/commit/493bc31fb6ed625b34949595c9c83249ef78384d))
+* removed runArgs from devcontainer ([4ecd967](https://github.com/Knighten-Homelab/ansible-common-roles/commit/4ecd9673612343bfb337777cbed63504e53e45d1))
+
+### Features
+
+* make nexus urls configurable via base url variable ([13cb31f](https://github.com/Knighten-Homelab/ansible-common-roles/commit/13cb31f2728b9c934f996884cb43f7a36f435c8f))
+
 ## [1.3.0](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/compare/1.2.1...1.3.0) (2024-11-24)
 
 ### Features
