@@ -33,7 +33,7 @@ Configure package managers to use a Nexus repository mirror:
 - **[pip_nexus_mirror](roles/pip_nexus_mirror/README.md)** - Configure pip Python package manager
 - **[dockerhub_nexus_mirror](roles/dockerhub_nexus_mirror/README.md)** - Configure Docker registry mirror
 
-All Nexus mirror roles default to `nexus.knighten.io` but can be configured to use any Nexus server via the `*_nexus_base_url` variable.
+All Nexus mirror roles default to `nexus.example.com` but can be configured to use any Nexus server via the `*_nexus_base_url` variable.
 
 ### System Management Roles
 
@@ -79,11 +79,6 @@ All Nexus mirror roles default to `nexus.knighten.io` but can be configured to u
         pip_nexus_mirror_nexus_base_url: "nexus.example.com"
 ```
 
-## Requirements
-
-- Ansible >= 2.17.0
-- Python >= 3.11 (for development)
-
 ## Development
 
 See [CLAUDE.md](CLAUDE.md) for detailed development instructions including:
@@ -104,23 +99,3 @@ uv sync
 # Lint roles
 uv run ansible-lint roles
 ```
-
-## Documentation
-
-Each role includes comprehensive documentation:
-- Role-specific README with usage examples
-- Variable descriptions and defaults
-- Example playbooks
-
-## License
-
-Apache-2.0
-
-## Author
-
-Johnny Knighten
-
-## Links
-
-- [GitHub Repository](https://github.com/Johnny-Knighten/ansible-homelab-common-roles)
-- [Issue Tracker](https://github.com/Johnny-Knighten/ansible-homelab-common-roles/issues)
